@@ -3,7 +3,7 @@
 
 Para ejecturar el programa solo es necesario correr el archivo .py estando este en el mismo directorio que el archivo "pesos.txt".
 
-PONER LINK VIDEO
+https://youtu.be/eskR7CDWs44
 
 Problema
 
@@ -17,3 +17,7 @@ En el caso de la búsqueda en anchura, utilizamos este método en contraposició
 Se entiende que se ocupa dos métodos para medir la eficiencia de la heurística, porque si el algoritmo que la emplea resulta tener un desempeño igual o peor de la búsqueda en anchura, entonces se está en presencia de una pésima heurística y el curso de acción a seguir sería mejorarla tomando en cuenta el problema y la razón de su paupérrimo.
 
 Ahora, cuando se tiene en cuenta la información del problema y se plantea una heurística admisible, es que se elige A* por sobre los demás candidatos. Este algorito es capaz de superar con creces a sus algoritmos competidores en solucionar la problemática expuesta, dado que su característica principal  es que la primera solución final que encuentra es una óptima (gracias a que la heurística admisible considerará siempre una solución igual o mejor que la existente), dejando a los demás algoritmos como opciones obsoletas.
+
+Coevaluación
+
+En general todos trabajamos la misma cantidad y fuimos puntuales con las reuniones propuestas en conjunto para avanzar con el desafío.
