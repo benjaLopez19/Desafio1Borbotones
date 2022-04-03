@@ -14,11 +14,11 @@ final_state = line3.strip()
 
 accesos = np.loadtxt("pesos.txt", delimiter=',', skiprows=4, max_rows=num)
 #lee primera matriz (distancias entre ciuadades)
-print(accesos)
+#print(accesos)
 
 distancias_lineal = np.loadtxt("pesos.txt", delimiter=',', skiprows=5+num, max_rows=num)
 #lee segunda matriz de distancias en linea recta
-print(distancias_lineal)
+#print(distancias_lineal)
 
 
 ruta=[] 
@@ -70,7 +70,6 @@ def visit(state):
 from copy import deepcopy
 
 initial=State(initial_state,ruta)
-#print(get_valid_actions(initial))
 
 def bfs(initial_state):
   print("ENTRA anchura\n")
@@ -99,6 +98,33 @@ def bfs(initial_state):
   return solutions #se encontró una solución!
 
 
+initial=State(initial_state,ruta)
+
+def dfs(initial):
+  print("ENTRA profundidad\n")
+  
+  solutions = []
+  stack= [deepcopy(initial)]
+  visitado.clear()
+  iters = 0
+  while len(stack)>0:
+    iters += 1
+    state = stack.pop(0) #retorna y elimina primer elemento
+    if is_final_state(state): 
+      solutions.append(state)
+      return state,iters
+
+    actions = get_valid_actions(state)
+    visit(initial)
+    for action in actions:
+      new_state = deepcopy(state) #ojo que debemos copiar el estado antes de modificarlo!
+      transition(new_state, action)
+      if visited(new_state):continue
+      stack.append(new_state) #agrega al final
+      visit(new_state)
+      
+  return solutions #se encontró una solución!
+
   
 #Funciones heuristicas
 def heuristic_evalu(state):
@@ -115,7 +141,6 @@ from queue import PriorityQueue
 
 
 initial=State(initial_state,ruta)
-print(visitado)
 
 
 def astar(initial):
@@ -151,6 +176,9 @@ def astar(initial):
 #EJECUCUCIÓN DE SOLUCIONES
 solucionA,itersA=bfs(initial)   
 print("solucion",solucionA.ruta,"iteraciones",itersA,"\n")
+
+solucionp,itersp=dfs(initial)   
+print("solucion",solucionp.ruta,"iteraciones",itersp,"\n")
 
 solucion,iters=astar(initial)
 print("solucion",solucion.ruta,"iteraciones",iters)
