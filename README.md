@@ -3,7 +3,7 @@
 
 Para ejecturar el programa solo es necesario correr el archivo .py estando este en el mismo directorio que el archivo "pesos.txt".
 
-PONER LINK VIDEO
+https://youtu.be/eskR7CDWs44
 
 Problema
 
